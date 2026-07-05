@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+
+        <meta charset="utf-8">
+
+        <title>Xtreme'x TV</title>
+        <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <script src="ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+        <link href="unpkg.com/video.js%408.23.9/dist/video-js.css" rel="stylesheet">
+        
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="js/clappr.min.js"></script>
+        <link href="css/custom.css" rel="stylesheet">
+        <script type="text/javascript" src="js/clappr-chromecast-plugin.min.js"></script>
+        <style class="clappr-style">
+            @font-face{font-family:Roboto;font-style:normal;font-weight:400;src:local("Roboto"),local("Roboto-Regular"),url(https://cdn.jsdelivr.net/npm/clappr@latest/dist/38861cba61c66739c1452c3a71e39852.ttf) format("truetype")}
+            body {
+                background: #000 url(img/bgu.html) top center;
+            }
+            
+            /* Channel Scroll CSS */
+            #vidlink {
+                max-height: 400px; /* আপনার প্রয়োজন অনুযায়ী হাইট পরিবর্তন করতে পারেন */
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding-right: 5px;
+            }
+            
+            /* Custom Scrollbar Design */
+            #vidlink::-webkit-scrollbar {
+                width: 6px;
+            }
+            #vidlink::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+            }
+            #vidlink::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 4px;
+            }
+            #vidlink::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.5);
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row justify-content-center" style="margin-top: 50px;">
+
+                <div class="col-12 col-lg-8">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <div id="player" class="embed-responsive-item">
+                            <video id="vid1" class="video-js vjs-default-skin vjs-fluid" poster="https://imgur.com/xxqm7EE" width="640" height="360" controls autoplay preload="auto" data-setup='{ "techOrder": ["html5", "flash", "youtube"],
+ "sources": [{ "type": "application/x-mpegURL", "src": "http://180.94.28.28:8097//BTV/index.fmp4.m3u8"}]}'></video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="channel-list">
+                        <ul class="nav nav-tabs nav-justified" style=" margin-bottom: 15px;">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" data-type="Fifa">Fifa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-type="Bangla">Bangla</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"  data-type="English">English</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"  data-type="Hindi">Hindi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"  data-type="Sports">Sports</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"  data-type="Cartoon">Cartoon</a>
+                            </li>
+                        </ul>
+                        
+                        <ul id="vidlink" class="thumbnail-slider d-flex flex-wrap">
+			
+                            <li class="Fifa"><a title="Only My FTP" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//BTV/index.fmp4.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="Only My FTP"></a></li>
+                            <li class="Fifa"><a title="T Sports HD" href="javascript:;" class='channel' data-link="https://flussonic.deltainfonet.com/01_Tsports_HD/tracks-v1a1/mono.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="T Sports HD"></a></li>
+						   <li class="Fifa"><a title="T Sports HD" href="javascript:;" class='channel' data-link="http://198.195.239.50:8095/tsports/tracks-v1a1/mono.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="T Sports HD"></a></li>
+                            <li class="Fifa"><a title="Bioscope Live" href="javascript:;" class='channel' data-link="https://cdn-tt.pages.dev/ch1.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="Bioscope Live"></a></li>
+                            <li class="Fifa"><a title="Iscreeen" href="javascript:;" class='channel' data-link="http://172.16.200.211/stream/hls/ch01.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="Iscreeen"></a></li>
+                            <li class="Fifa"><a title="Toffee" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//PTV-Sports/index.fmp4.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="Toffee"></a></li>
+                            <li class="Fifa"><a title="PTV Sports" href="javascript:;" class='channel' data-link="http://198.195.239.50:8095/Fifa-1/video.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="PTV Sports"></a></li>
+                            <li class="Fifa"><a title="PTV Sports" href="javascript:;" class='channel' data-link="http://198.195.239.50:8095/ptv/tracks-v1a1/mono.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="PTV Sports"></a></li>
+                            <li class="Fifa"><a title="PTV HD" href="javascript:;" class='channel' data-link="http://198.195.239.50:8095/ptv/tracks-v1a1/mono.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="PTV HD"></a></li>
+                            <li class="Fifa"><a title="BTV HD" href="javascript:;" class='channel' data-link="http://198.195.239.50:8095/btv/tracks-v1a1/mono.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="BTV HD"></a></li>
+                            <li class="Fifa"><a title="BTV HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097/BTV/index.fmp4.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="BTV HD"></a></li>
+                            <li class="Fifa"><a title="BTV HD NS" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="BTV HD NS"></a></li>
+                            <li class="Fifa"><a title="T Sports HD 2" href="javascript:;" class='channel' data-link="http://114.130.57.233:8080/LIVE-Sports/video.m3u8?token=SkQuhAXZxgBan1"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="T Sports HD 2"></a></li>
+                            <li class="Fifa"><a title="Unite Sports Eng FIFA" href="javascript:;" class='channel' data-link="http://198.195.239.50:8095/unt-s/video.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="Unite Sports Eng FIFA"></a></li>
+                            <li class="Fifa"><a title="Somoy TV HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Somoy-TV/index.fmp4.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="Somoy TV HD"></a></li>
+                            <li class="Fifa"><a title="Somoy TV" href="javascript:;" class='channel' data-link="http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1"><img src="https://shorturl.at/NPoFh" alt="Somoy TV"></a></li>
+                            <li class="Fifa"><a title="T Sports Akash DTH" href="javascript:;" class='channel' data-link="http://198.195.239.50:8095/tsports/tracks-v1a1/mono.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="T Sports Akash DTH"></a></li>
+                            <li class="Fifa"><a title="Unite8 SPORTS Hindi NS" href="javascript:;" class='channel' data-link="https://ranapkbd.site/JOIN@RANAPK33/play.m3u8?id=373312"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="Unite8 SPORTS Hindi NS"></a></li>
+                            <li class="Fifa"><a title="TPV Sport" href="javascript:;" class='channel' data-link="https://1nyaler.streamhostingcdn.top/stream/89/index.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="TPV Sport"></a></li>
+                            <li class="Fifa"><a title="Fox Sport Fifa" href="javascript:;" class='channel' data-link="http://84.17.50.102/fox/index.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="Fox Sport Fifa"></a></li>
+                            <li class="Fifa"><a title="NEXT TV" href="javascript:;" class='channel' data-link="https://next.badinan.xyz/nexttv/FHD/playlist.m3u8"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="NEXT TV"></a></li>
+                            <li class="Fifa"><a title="DAZN Spanish" href="javascript:;" class='channel' data-link="https://1nyaler.streamhostingcdn.top/stream/94/index.m3u8"><img src="https://shorturl.at/NPoFh" alt="DAZN Spanish"></a></li>
+                            <li class="Fifa"><a title="FIFA Live" href="javascript:;" class='channel' data-link="https://andro.226503.xyz/checklist/androstreamlivebs1.m3u8"><img src="https://shorturl.at/NPoFh" alt="FIFA Live"></a></li>
+                            <li class="Fifa"><a title="Fifa World cup" href="javascript:;" class='channel' data-link="https://live-aburayhan1103.telewebion.ir/ek/faratar/live/playlist.m3u8?isp=NA&city=NA"><img src="https://shorturl.at/NPoFh" alt="Fifa World cup"></a></li>
+                            <li class="Fifa"><a title="UNITEB Sports 2 HD" href="javascript:;" class='channel' data-link="https://zati5.hasanhabibmottakin.workers.dev/0-9-channel_2105335046/index.m3u8"><img src="https://shorturl.at/NPoFh" alt="UNITEB Sports 2 HD"></a></li>
+                            <li class="Fifa"><a title="TVP Sports" href="javascript:;" class='channel' data-link="https://estreams.tv.nej.cz/dash/CH_TVP_SPORT_Portable.ism/playlist.mpd"><img src="https://shorturl.at/NPoFh" alt="TVP Sports"></a></li>
+                            <li class="Fifa"><a title="ফুটবল বিশ্বকাপ বাংলায়" href="javascript:;" class='channel' data-link="http://str2.v3v3v.xyz:2082/live/rokhsi25_951396/POm6KqnW/277428.ts"><img src="https://shorturl.at/NPoFh" alt="ফুটবল বিশ্বকাপ বাংলায়"></a></li>
+                            <li class="Fifa"><a title="Bein Sports 1 Max Arabic" href="javascript:;" class='channel' data-link="http://starhub.pro/live/farhat-3379/67897-913379/744517.ts"><img src="https://imglink.cc/cdn/RY7jBwPKAr.jpg" alt="Bein Sports 1 Max Arabic"></a></li>
+                            <li class="Fifa"><a title="Bein Sports Direct" href="javascript:;" class='channel' data-link="https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8"><img src="https://shorturl.at/NPoFh" alt="Bein Sports Direct"></a></li>
+                            <li class="Fifa"><a title="Fox 5 Sports" href="javascript:;" class='channel' data-link="http://84.17.50.102/fox/index.m3u8"><img src="https://shorturl.at/NPoFh" alt="Fox 5 Sports"></a></li>
+                            <li class="Fifa"><a title="Bein Sports" href="javascript:;" class='channel' data-link="http://ua.online24.pm/play/1101/350B326FB34F4B8/video.m3u8"><img src="https://shorturl.at/NPoFh" alt="Bein Sports"></a></li>
+                            <li class="Fifa"><a title="Bein Sports Tekrar" href="javascript:;" class='channel' data-link="https://ua.online24.pm/play/1103/350B326FB34F4B8/video.m3u8"><img src="https://shorturl.at/NPoFh" alt="Bein Sports Tekrar"></a></li>
+                            <li class="Fifa"><a title="TRT Spor" href="javascript:;" class='channel' data-link="https://andro.226503.xyz/checklist/androstreamlivebs1.m3u8"><img src="https://shorturl.at/NPoFh" alt="TRT Spor"></a></li>
+
+                            <li class="Bangla"><a title="BTV" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//BTV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="BTV"></a></li>
+                            <li class="Bangla"><a title="Jamuna Tv" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Jamuna-TV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Jamuna Tv"></a></li>
+                            <li class="Bangla"><a title="MAASRANGA TV HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Maasranga-tv/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="MAASRANGA TV HD"></a></li>
+                            <li class="Bangla"><a title="Nagorik TV" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Nagorik-TV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Nagorik TV"></a></li>
+                            <li class="Bangla"><a title="Somoy TV" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Somoy-TV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Somoy TV"></a></li>
+                            <li class="Bangla"><a title="Gazi TV" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//GAZI-TV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Gazi TV"></a></li>
+                            <li class="Bangla"><a title="Ekattur" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//EKATTOR-TV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Ekattur"></a></li>
+                            <li class="Bangla"><a title="Channel i" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//CHANNEL-i/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Channel i"></a></li>
+                            <li class="Bangla"><a title="Channel 24" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//CHANNEL-24/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Channel 24"></a></li>
+                            <li class="Bangla"><a title="Channel 9" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//CHANNEL-9/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Channel 9"></a></li>
+                            <li class="Bangla"><a title="Deepto TV" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//DEEPTO-TV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Deepto TV"></a></li>
+                            <li class="Bangla"><a title="DBC News" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//DBC-NEWS/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="DBC News"></a></li>
+                            <li class="Bangla"><a title="Independent TV" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Independent-TV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Independent TV"></a></li>
+                            <li class="Bangla"><a title="Rtv" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//RTV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Rtv"></a></li>
+                            <li class="Bangla"><a title="Zee Bangla" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//ZEE-BANGLA/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Zee Bangla"></a></li>
+                            <li class="Bangla"><a title="Star Jalsha" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//STAR-JALSHA/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Star Jalsha"></a></li>
+                            <li class="Bangla"><a title="Jalsha Movies" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//JALSHA-MOVIES/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Jalsha Movies"></a></li>
+                            <li class="Bangla"><a title="Enter 10 Bangla" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//ENTER-10-BANGLA/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Enter 10 Bangla"></a></li>
+                            <li class="Bangla"><a title="Colors Bangla" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//COLORS-BANGLA/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Colors Bangla"></a></li>
+                            <li class="Bangla"><a title="Color Bangla Cinema" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//COLORS-BANGLA-CINEMA/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Color Bangla Cinema"></a></li>
+                            <li class="Bangla"><a title="Sun Bangla" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//SUN-BANGLA/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Sun Bangla"></a></li>
+                            <li class="Bangla"><a title="Zee Bangla Chinena" href="javascript:;" class='channel' data-link="https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Zee Bangla Chinena"></a></li>
+                            <li class="Bangla"><a title="জলসা Movie HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//JALSHA-MOVIES/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="জলসা Movie HD"></a></li>
+                            <li class="Bangla"><a title="Sun Bangla" href="javascript:;" class='channel' data-link="http://mag.king-4k.cc/C1645263A1D245C/1sFTVBSVCP/126098"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Sun Bangla"></a></li>
+                            <li class="Bangla"><a title="Colors Bangla" href="javascript:;" class='channel' data-link="http://main.epgmaker.com/live/y49sz6KMQs/6115263489/532.ts"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Colors Bangla"></a></li>
+                            <li class="Bangla"><a title="Colors Bangla" href="javascript:;" class='channel' data-link="https://catchup.yuppcdn.net/amazonv2/36/preview/colorsbanglahd/master/chunklist.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Colors Bangla"></a></li>
+                            <li class="Bangla"><a title="Colours Bangla Chinema" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//COLORS-BANGLA-CINEMA/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Colours Bangla Chinema"></a></li>
+                            <li class="Bangla"><a title="Sony Aath" href="javascript:;" class='channel' data-link="http://mysave23.com/live/PeH5kPWFfG/infamous7funny/4083.ts"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Sony Aath"></a></li>
+                            <li class="Bangla"><a title="Ente10 Bangla" href="javascript:;" class='channel' data-link="https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_720p/chunks.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Ente10 Bangla"></a></li>
+                            <li class="Bangla"><a title="Channel 1" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Channel 1"></a></li>
+                            <li class="Bangla"><a title="Me TV" href="javascript:;" class='channel' data-link="http://103.175.242.10:8080/metv/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Me TV"></a></li>
+                            <li class="Bangla"><a title="BTV" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="BTV"></a></li>
+                            <li class="Bangla"><a title="Sangsad" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Sangsad"></a></li>
+                            <li class="Bangla"><a title="Jamuna Tv" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/1701-audio_113312_eng=113200-video=1692000.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Jamuna Tv"></a></li>
+                            <li class="Bangla"><a title="Channel 24" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Channel 24"></a></li>
+                            <li class="Bangla"><a title="EKTTOR tv" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="EKTTOR tv"></a></li>
+                            <li class="Bangla"><a title="INDEPENDENT TV" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="INDEPENDENT TV"></a></li>
+                            <li class="Bangla"><a title="ATN NEWS" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1706/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="ATN NEWS"></a></li>
+                            <li class="Bangla"><a title="Banglavison" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Banglavison"></a></li>
+                            <li class="Bangla"><a title="Maasranga" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Maasranga"></a></li>
+                            <li class="Bangla"><a title="Deepto Tv" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Deepto Tv"></a></li>
+                            <li class="Bangla"><a title="Channel i" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Channel i"></a></li>
+                            <li class="Bangla"><a title="NTV" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="NTV"></a></li>
+                            <li class="Bangla"><a title="News 24" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="News 24"></a></li>
+                            <li class="Bangla"><a title="SA TV" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1720/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="SA TV"></a></li>
+                            <li class="Bangla"><a title="Star News" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Star News"></a></li>
+                            <li class="Bangla"><a title="DBC News" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="DBC News"></a></li>
+                            <li class="Bangla"><a title="Channel 9" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Channel 9"></a></li>
+                            <li class="Bangla"><a title="Ananda TV" href="javascript:;" class='channel' data-link="https://sm-monirul.top/toffee/play/anandatv.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Ananda TV"></a></li>
+                            <li class="Bangla"><a title="R tv" href="javascript:;" class='channel' data-link="http://mag.king-4k.cc/C1645263A1D245C/1sFTVBSVCP/108833"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="R tv"></a></li>
+                            <li class="Bangla"><a title="Bijoy TV" href="javascript:;" class='channel' data-link="https://sm-monirul.top/toffee/play/bijoytv.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Bijoy TV"></a></li>
+                            <li class="Bangla"><a title="Desh TV" href="javascript:;" class='channel' data-link="https://owrcovcrpy.gpcdn.net/bpk-tv/1724/output/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Desh TV"></a></li>
+                            <li class="Bangla"><a title="Jago News 24" href="javascript:;" class='channel' data-link="https://app.ncare.live/live-orgin/jagonews24.stream/playlist.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Jago News 24"></a></li>
+                            <li class="Bangla"><a title="Movie Bangla" href="javascript:;" class='channel' data-link="http://alvetv.com/moviebanglatv/8080/index.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Movie Bangla"></a></li>
+                            <li class="Bangla"><a title="Bangla TV" href="javascript:;" class='channel' data-link="https://sm-monirul.top/toffee/play/bangla_tv.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Bangla TV"></a></li>
+                            <li class="Bangla"><a title="T Sports HD" href="javascript:;" class='channel' data-link="http://mag.king-4k.cc/C1645263A1D245C/1sFTVBSVCP/756462"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="T Sports HD"></a></li>
+                            <li class="Bangla"><a title="Channel S" href="javascript:;" class='channel' data-link="https://sm-monirul.top/toffee/play/channel_s.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Channel S"></a></li>
+                            <li class="Bangla"><a title="Desh TV" href="javascript:;" class='channel' data-link="https://sm-monirul.top/toffee/play/desh_tv.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Desh TV"></a></li>
+                            <li class="Bangla"><a title="Ekhon TV" href="javascript:;" class='channel' data-link="https://sm-monirul.top/toffee/play/ekhon_tv.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Ekhon TV"></a></li>
+
+                            <li class="English"><a title="MOVIES-NOW" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//MOVIES-NOW/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="MOVIES-NOW"></a></li>
+
+                            <li class="Hindi"><a title="Sony Max HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//SONY-MAX/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Sony Max HD"></a></li>
+                            <li class="Hindi"><a title="Zee Cinema HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//ZEE-CINEMA/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Zee Cinema HD"></a></li>
+
+                            <li class="Sports"><a title="Star Sports 1" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//STAR-SPORTS-1/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Star Sports 1"></a></li>
+                            <li class="Sports"><a title="Star Sports 2" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Star-Sports-2/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Star Sports 2"></a></li>
+                            <li class="Sports"><a title="StarSports Select 1" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Star-Sports-Select-1/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="StarSports Select 1"></a></li>
+                            <li class="Sports"><a title="Star Sports Select 2" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//star-Sports-Select-2/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Star Sports Select 2"></a></li>
+                            <li class="Sports"><a title="Star Sports 3" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Star-Sports-3/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Star Sports 3"></a></li>
+                            <li class="Sports"><a title="Sony Ten 1 HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Sony-Ten-1/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Sony Ten 1 HD"></a></li>
+                            <li class="Sports"><a title="Sony Ten 2 HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Sony-Ten-2/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Sony Ten 2 HD"></a></li>
+                            <li class="Sports"><a title="Sony Ten 3 HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Sony-Ten-3/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Sony Ten 3 HD"></a></li>
+                            <li class="Sports"><a title="Sony Ten 5 HD" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Sony-Ten-5/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Sony Ten 5 HD"></a></li>
+                            <li class="Sports"><a title="PTV Sports" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//PTV-Sports/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="PTV Sports"></a></li>
+                            <li class="Sports"><a title="A Sports" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//A-Sports/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="A Sports"></a></li>
+                            <li class="Sports"><a title="WILLOW_SPORTS" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//WILLOW-TV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="WILLOW_SPORTS"></a></li>
+                            <li class="Sports"><a title="BEIN-SPORTS-1" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//BEIN-SPORTS-1/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="BEIN-SPORTS-1"></a></li>
+                            <li class="Sports"><a title="BEIN-SPORTS-2" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//BEIN-SPORTS-2/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="BEIN-SPORTS-2"></a></li>
+
+                            <li class="Cartoon"><a title="Discovery_kids" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//DISCOVERY-KIDS/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Discovery_kids"></a></li>
+                            <li class="Cartoon"><a title="Duronto-TV" href="javascript:;" class='channel' data-link="http://180.94.28.28:8097//Duronto-TV/index.fmp4.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Duronto-TV"></a></li>
+                            <li class="Cartoon"><a title="Cartoon Network" href="javascript:;" class='channel' data-link="https://sm-monirul.top/toffee/play/cartoon_network_sd.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Cartoon Network"></a></li>
+                            <li class="Cartoon"><a title="Pogo" href="javascript:;" class='channel' data-link="https://sm-monirul.top/toffee/play/pogo_sd.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="Pogo"></a></li>
+                            <li class="Cartoon"><a title="SONY YAY VIP" href="javascript:;" class='channel' data-link="https://sm-monirul.top/toffee/play/sonyyay.m3u8"><img src="https://i.imgur.com/sqeIrMo.jpeg" alt="SONY YAY VIP"></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="unpkg.com/video.js%407.10.2/dist/video.js"></script>
+        <script src="unpkg.com/%40videojs/http-streaming%402.4.2/dist/videojs-http-streaming.min.js"></script>
+        <script src="js/scripts.js"></script>
+
+    </body>
+
+</html>

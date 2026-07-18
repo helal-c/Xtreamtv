@@ -1,0 +1,66 @@
+$(document).ready(function () {
+        var player = videojs('video');
+        player.playlist([
+            {
+                name: 'Channel 1', autoplay: true,
+                sources: [
+                    {src: 'https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports1080p.m3u8', type: 'application/x-mpegURL'}
+                ]
+            },
+            {
+                name: 'Channel 2',
+                sources: [
+                    {src: 'https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8', type: 'application/x-mpegURL'}
+                ]
+            },
+            {
+                name: 'Channel 3',
+                sources: [
+                    {src: 'https://tv.bdixbd.net/api/proxy/stream.m3u8?url=http%3A%2F%2F103.151.61.12%2Ftv.bdixbd.net%2Ftracks-v1a1a2%2Fmono.m3u8', type: 'application/x-mpegURL'}
+                ]
+            },
+            {
+                name: 'Channel 4',
+                sources: [
+                    {src: 'https://img.refooty.com/m3u8/14667-4JfNe.m3u8', type: 'application/x-mpegURL'}
+                ]
+            },
+            {
+                name: 'Channel 5',
+                sources: [
+                    {src: 'https://tv.bdixbd.net/api/proxy/stream.m3u8?url=http%3A%2F%2F103.151.60.204%3A881%2FBTV%2Ftracks-v1a1%2Fmono.m3u8', type: 'application/x-mpegURL'}
+                ]
+            },
+            {
+                name: 'Channel 6',
+                sources: [
+                    {src: 'https://tv.bdixbd.net/api/proxy/stream.m3u8?url=http%3A%2F%2F103.151.60.204%3A881%2FSomoy-tv%2Ftracks-v1a1%2Fmono.m3u8', type: 'application/x-mpegURL'}
+                ]
+            },
+            {
+                name: 'Channel 7',
+                sources: [
+                    {src: 'http://172.17.50.', type: 'application/x-mpegURL'}
+                ]
+            },
+            {
+                name: 'Channel 8',
+                sources: [
+                    {src: 'http://172.17.50.112:84/ant1008/video.m3u8', type: 'application/x-mpegURL'}
+                ]
+            },
+            {
+                name: 'Channel 9',
+                sources: [
+                    {src: 'http://172.17.50.112:84/ant1009/video.m3u8', type: 'application/x-mpegURL'}
+                ]
+            },
+            {
+                name: 'Channel 10',
+                sources: [
+                    {src: 'http://172.17.50.112:84/ant1010/video.m3u8', type: 'application/x-mpegURL'}
+                ]
+            }
+        ]);
+        player.playlistUi();
+    });

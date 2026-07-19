@@ -3,85 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xtreme'x TV - Full Upgrade</title>
+    <title>Xtreme'x TV - Mobile & PC Optimized</title>
     
-    <!-- Modern Video.js v8 Styles -->
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/videojs-playlist-ui@4.0.0/dist/videojs-playlist-ui.css" rel="stylesheet">
 
     <style>
-        :root {
-            --bg-gradient: linear-gradient(135deg, #141e30, #243b55);
-            --glass-bg: rgba(0, 0, 0, 0.85);
-            --accent-color: #0071e3;
-        }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
             font-family: sans-serif;
-            background: url('img/img2.jpg') no-repeat center center fixed, var(--bg-gradient);
+            background: url('img/img2.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             min-height: 100vh;
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 10px;
         }
 
         .container {
-            max-width: 1000px;
             width: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 12px;
+            max-width: 900px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
             overflow: hidden;
             border: 1px solid #333;
         }
 
-        /* হেডার ও নাম - ট্রান্সপারেন্ট ব্লার ডিজাইন */
-        .app-header, #channel-name-display {
+        .app-header {
             padding: 15px;
             text-align: center;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid #333;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
 
-        .app-header { font-size: 1.5rem; font-weight: 600; }
-        #channel-name-display { 
-            font-size: 1.2rem; 
-            color: var(--accent-color); 
-            font-weight: bold; 
-            border-top: 1px solid #333; 
-        }
-
-        .main-wrapper { display: flex; }
+        .main-wrapper { display: flex; flex-direction: row; }
 
         .player-side { flex: 3; }
         .video-js { width: 100% !important; aspect-ratio: 16 / 9; }
 
+        #channel-name-display {
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.9);
+            color: #0071e3;
+            text-align: center;
+            font-weight: bold;
+        }
+
         .playlist-side {
             flex: 1;
             width: 250px;
-            height: 450px;
+            height: 400px;
             overflow-y: auto !important;
             border-left: 1px solid #333;
-            background: #1a1a1a;
+            background: #111;
         }
 
-        /* সুন্দর স্ক্রলবার */
-        .playlist-side::-webkit-scrollbar { width: 6px; }
-        .playlist-side::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 3px; }
-
-        .vjs-playlist .vjs-playlist-item { border-bottom: 1px solid #333 !important; }
-        .vjs-playlist .vjs-selected { background: rgba(0, 113, 227, 0.3) !important; }
-
+        /* মোবাইল রেসপন্সিভ লেআউট */
         @media (max-width: 768px) {
             .main-wrapper { flex-direction: column; }
-            .playlist-side { height: 250px; width: 100%; border-left: none; }
+            .playlist-side { width: 100%; height: 250px; border-left: none; border-top: 1px solid #333; }
         }
+
+        .playlist-side::-webkit-scrollbar { width: 6px; }
+        .playlist-side::-webkit-scrollbar-thumb { background: #0071e3; border-radius: 3px; }
+        .vjs-playlist .vjs-playlist-item { border-bottom: 1px solid #333 !important; }
+        .vjs-playlist .vjs-selected { background: rgba(0, 113, 227, 0.5) !important; }
     </style>
 </head>
 <body>
@@ -122,13 +113,12 @@
         player.playlist(channels);
         player.playlistUi({ el: document.getElementById('vjs-playlist') });
 
-        // চ্যানেল নাম আপডেট
         player.on('playlistitem', () => {
             const currentItem = player.playlist.currentItem();
             nameDisplay.innerText = channels[currentItem].name;
         });
 
-        // বাফারিং অটো-নেক্সট (১০ সেকেন্ড)
+        // ১০ সেকেন্ড বাফার হ্যান্ডলিং
         let bufferTimeout;
         player.on('waiting', () => {
             bufferTimeout = setTimeout(() => player.playlist.next(), 10000);
@@ -136,7 +126,6 @@
         player.on('playing', () => clearTimeout(bufferTimeout));
         player.on('error', () => player.playlist.next());
 
-        // প্রথম ক্লিকেই আনমিউট
         document.body.addEventListener('click', () => {
             if(player.muted()) player.muted(false);
         }, { once: true });

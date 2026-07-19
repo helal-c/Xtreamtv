@@ -3,64 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xtreme'x TV - Mobile Optimized</title>
+    <title>Xtreme'x TV - FIFA Final</title>
     
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/videojs-playlist-ui@4.0.0/dist/videojs-playlist-ui.css" rel="stylesheet">
 
     <style>
+        :root { --stadium-dark: #0a1f11; --gold: #d4af37; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: sans-serif;
-            background: #000;
-            color: #fff;
-            height: 100vh;
-            overflow: hidden; /* পুরো পেজের স্ক্রল বন্ধ */
-            display: flex;
-            flex-direction: column;
+        
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            /* এখানে img/img2.jpg ব্যাকগ্রাউন্ড হিসেবে সেট করা হয়েছে */
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/img2.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+            color: #fff; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden; 
         }
 
-        /* প্লেয়ারের অংশ - এটি উপরে আটকে থাকবে */
-        .player-side {
-            width: 100%;
-            background: #000;
-            flex-shrink: 0; /* ছোট হবে না */
-        }
-        .video-js { width: 100% !important; aspect-ratio: 16 / 9; }
-
-        /* চ্যানেলের নাম */
-        #channel-name-display {
-            padding: 10px;
-            background: #111;
-            color: #0071e3;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* প্লেলিস্টের অংশ - শুধু এইটুকু স্ক্রল হবে */
-        .playlist-side {
-            flex: 1; /* বাকি জায়গা দখল করবে */
-            overflow-y: auto !important; /* স্ক্রল কাজ করার জন্য */
-            background: #1a1a1a;
-            -webkit-overflow-scrolling: touch; /* মোবাইলে স্মুথ স্ক্রল */
-        }
-
-        .playlist-side::-webkit-scrollbar { width: 6px; }
-        .playlist-side::-webkit-scrollbar-thumb { background: #0071e3; border-radius: 3px; }
-
-        .vjs-playlist .vjs-playlist-item { border-bottom: 1px solid #333 !important; }
-        .vjs-playlist .vjs-selected { background: rgba(0, 113, 227, 0.3) !important; }
+        .app-header { padding: 15px; text-align: center; background: rgba(0,0,0,0.8); border-bottom: 3px solid var(--gold); font-size: 1.5rem; font-weight: bold; color: var(--gold); text-transform: uppercase; }
+        .main-wrapper { display: flex; flex: 1; overflow: hidden; }
+        .player-side { flex: 3; display: flex; flex-direction: column; background: rgba(0,0,0,0.5); }
+        .video-js { width: 100% !important; flex: 1; }
+        #channel-name-display { padding: 12px; background: rgba(0,0,0,0.9); color: var(--gold); text-align: center; font-weight: bold; border-top: 1px solid var(--gold); }
+        
+        .playlist-side { flex: 1; width: 350px; overflow-y: auto; background: rgba(10, 31, 17, 0.9); padding: 10px; }
+        .vjs-playlist .vjs-playlist-item-list { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .vjs-playlist .vjs-playlist-item { background: rgba(255,255,255,0.1); border: 1px solid var(--gold) !important; border-radius: 8px !important; display: flex; flex-direction: column; align-items: center; padding: 8px !important; }
+        .vjs-playlist-thumbnail { width: 50px !important; height: 50px !important; margin-bottom: 5px; }
+        
+        @media (max-width: 768px) { .main-wrapper { flex-direction: column; } .playlist-side { width: 100%; height: 35vh; } }
     </style>
 </head>
 <body>
 
-    <div class="player-side">
-        <video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay muted playsinline preload="auto"></video>
-        <div id="channel-name-display">Loading...</div>
-    </div>
-
-    <div class="playlist-side">
-        <div id="vjs-playlist"></div>
+    <div class="app-header">XTREME'X TV - FIFA FINAL</div>
+    
+    <div class="main-wrapper">
+        <div class="player-side">
+            <video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay muted playsinline preload="auto"></video>
+            <div id="channel-name-display">SELECT CHANNEL</div>
+        </div>
+        <div class="playlist-side">
+            <div id="vjs-playlist"></div>
+        </div>
     </div>
 
 <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
@@ -69,17 +58,18 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const player = videojs('video-player', { fluid: true, autoplay: true, muted: true });
+        const player = videojs('video-player', { fluid: false, autoplay: true, muted: true });
         const nameDisplay = document.getElementById('channel-name-display');
+        const logoUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFGA22yHZPfB4GU5ThMKZt9mKRCbDN7P3hEZsq0YnnrA&s';
 
         const channels = [
-            { name: 'LIVE SPORTS', sources: [{ src: 'http://10.253.253.244:8088/101/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
-            { name: 'T-SPORTS', sources: [{ src: 'http://10.253.253.244:8088/102/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
-            { name: 'Fox Sports', sources: [{ src: 'https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports1080p.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
-            { name: 'Channel 2', sources: [{ src: 'https://s2.bufaloweb.com/bufalo9/tracks-v4a1/mono.ts.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
-            { name: 'Local Stream', sources: [{ src: 'http://172.16.200.211/stream/hls/ch01.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
-            { name: 'Colors HD', sources: [{ src: 'https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
-            { name: 'Somoy TV', sources: [{ src: 'https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' }
+            { name: 'LIVE SPORTS', sources: [{ src: 'http://10.253.253.244:8088/101/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'T-SPORTS', sources: [{ src: 'http://10.253.253.244:8088/102/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'Fox Sports', sources: [{ src: 'https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports1080p.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'Channel 2', sources: [{ src: 'https://s2.bufaloweb.com/bufalo9/tracks-v4a1/mono.ts.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'Local Stream', sources: [{ src: 'http://172.16.200.211/stream/hls/ch01.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'Colors HD', sources: [{ src: 'https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'Somoy TV', sources: [{ src: 'https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl }
         ];
 
         player.playlist(channels);
@@ -89,13 +79,6 @@
             const currentItem = player.playlist.currentItem();
             nameDisplay.innerText = channels[currentItem].name;
         });
-
-        let bufferTimeout;
-        player.on('waiting', () => {
-            bufferTimeout = setTimeout(() => player.playlist.next(), 10000);
-        });
-        player.on('playing', () => clearTimeout(bufferTimeout));
-        player.on('error', () => player.playlist.next());
 
         document.body.addEventListener('click', () => {
             if(player.muted()) player.muted(false);

@@ -27,7 +27,6 @@
         .header-title { font-size: 1.5rem; font-weight: bold; color: var(--gold); text-transform: uppercase; }
         .date-time { font-size: 0.9rem; color: #fff; text-align: right; }
 
-        /* Scrolling Notice Section */
         .marquee-container { background: var(--gold); color: #000; padding: 8px 0; overflow: hidden; white-space: nowrap; font-weight: bold; }
         .marquee-container marquee { font-size: 1rem; }
 
@@ -62,7 +61,6 @@
         <div class="date-time" id="date-time"></div>
     </div>
 
-    <!-- Scrolling Notice -->
     <div class="marquee-container">
         <marquee behavior="scroll" direction="left" scrollamount="5">
             সতর্কবার্তা: সার্ভারে অতিরিক্ত লোড থাকার কারণে খেলা দেখতে কিছুটা বাফার হতে পারে। যদি কোনো চ্যানেল বাফার করে, তবে অনুগ্রহ করে অন্য চ্যানেলগুলো ট্রাই করুন। আমাদের সাথে থাকার জন্য ধন্যবাদ!
@@ -86,7 +84,6 @@
 <script src="https://cdn.jsdelivr.net/npm/videojs-playlist-ui@4.0.0/dist/videojs-playlist-ui.min.js"></script>
 
 <script>
-    // Date and Time
     function updateDateTime() {
         const now = new Date();
         document.getElementById('date-time').innerText = now.toLocaleString('en-GB', { hour12: true });
@@ -109,7 +106,9 @@
             { name: 'FIFA 8', sources: [{ src: 'https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
             { name: 'FIFA 9', sources: [{ src: 'https://cp11.adabmedia.com/hls2/sport.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
             { name: 'FIFA 10', sources: [{ src: 'https://andro.evrenesoglu57.click/checklist/batutest.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
-            { name: 'FIFA 1', sources: [{ src: 'https://d952e52961615b5576267090ed78c739.livehwc4.com/pullsgp.yyzb456.top/live/stream-896956_lhd.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=ae15f0c1673d28ef8e8158cf7eb04e9a', type: 'application/x-mpegURL' }], poster: logoUrl }
+            { name: 'FIFA 1', sources: [{ src: 'https://d952e52961615b5576267090ed78c739.livehwc4.com/pullsgp.yyzb456.top/live/stream-896956_lhd.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=ae15f0c1673d28ef8e8158cf7eb04e9a', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'T SPORTS HD', sources: [{ src: 'https://flussonic.deltainfonet.com/02_Tsports_HD/tracks-v1a1/mono.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'PTV SPORTS HD', sources: [{ src: 'https://flussonic.deltainfonet.com/04_Ptvsports_HD/tracks-v1a1/mono.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl }
         ];
 
         player.playlist(channels);

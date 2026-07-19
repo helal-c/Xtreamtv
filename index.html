@@ -14,7 +14,6 @@
         
         body { 
             font-family: 'Segoe UI', sans-serif; 
-            /* এখানে img/img2.jpg ব্যাকগ্রাউন্ড হিসেবে সেট করা হয়েছে */
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/img2.jpg') no-repeat center center fixed; 
             background-size: cover; 
             color: #fff; 
@@ -63,13 +62,16 @@
         const logoUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFGA22yHZPfB4GU5ThMKZt9mKRCbDN7P3hEZsq0YnnrA&s';
 
         const channels = [
-            { name: 'LIVE SPORTS', sources: [{ src: 'http://10.253.253.244:8088/101/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: logoUrl },
-            { name: 'T-SPORTS', sources: [{ src: 'http://10.253.253.244:8088/102/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: logoUrl },
-            { name: 'Fox Sports', sources: [{ src: 'https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports1080p.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
-            { name: 'Channel 2', sources: [{ src: 'https://s2.bufaloweb.com/bufalo9/tracks-v4a1/mono.ts.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
-            { name: 'Local Stream', sources: [{ src: 'http://172.16.200.211/stream/hls/ch01.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
-            { name: 'Colors HD', sources: [{ src: 'https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
-            { name: 'Somoy TV', sources: [{ src: 'https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl }
+            { name: 'FIFA 2', sources: [{ src: 'http://10.253.253.244:8088/101/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'FIFA 3', sources: [{ src: 'http://10.253.253.244:8088/102/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'FIFA 4', sources: [{ src: 'https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports1080p.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'FIFA 5', sources: [{ src: 'https://s2.bufaloweb.com/bufalo9/tracks-v4a1/mono.ts.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'FIFA 6', sources: [{ src: 'https://pull.niues.live/live/stream-9912060_lhd.m3u8?auth_key=1783366763-0-0-e738badfeb59ab0c20ae4a350ec0d4ea', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'FIFA 7', sources: [{ src: 'https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'FIFA 8', sources: [{ src: 'https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'FIFA 9', sources: [{ src: 'https://cp11.adabmedia.com/hls2/sport.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'FIFA 10', sources: [{ src: 'https://andro.evrenesoglu57.click/checklist/batutest.m3u8', type: 'application/x-mpegURL' }], poster: logoUrl },
+            { name: 'FIFA 1', sources: [{ src: 'https://d952e52961615b5576267090ed78c739.livehwc4.com/pullsgp.yyzb456.top/live/stream-896956_lhd.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=ae15f0c1673d28ef8e8158cf7eb04e9a', type: 'application/x-mpegURL' }], poster: logoUrl }
         ];
 
         player.playlist(channels);

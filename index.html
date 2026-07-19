@@ -1,49 +1,146 @@
-<!doctype html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--
-<html class="no-js" lang="" oncontextmenu="return false"> 
--->
-<html class="no-js" lang="" oncontextmenu="return true">
-
+<!DOCTYPE html>
+<html lang="bn">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Xtreme'x TV</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xtreme'x TV - Full Upgrade</title>
+    
+    <!-- Modern Video.js v8 Styles -->
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/videojs-playlist-ui@4.0.0/dist/videojs-playlist-ui.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/main.css">
-<!--
-<body onLoad="disableClick()">
--->
-<body style="background: url('img/img2.jpg') no-repeat center center fixed; background-size: cover; margin: 0; height: 100vh;">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #141e30, #243b55);
+            --glass-bg: rgba(0, 0, 0, 0.85);
+            --accent-color: #0071e3;
+        }
 
-<!--
-<div class="pattern pattern--hidden"></div>
--->
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: sans-serif;
+            background: url('img/img2.jpg') no-repeat center center fixed, var(--bg-gradient);
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        /* হেডার ও নাম - ট্রান্সপারেন্ট ব্লার ডিজাইন */
+        .app-header, #channel-name-display {
+            padding: 15px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #333;
+        }
+
+        .app-header { font-size: 1.5rem; font-weight: 600; }
+        #channel-name-display { 
+            font-size: 1.2rem; 
+            color: var(--accent-color); 
+            font-weight: bold; 
+            border-top: 1px solid #333; 
+        }
+
+        .main-wrapper { display: flex; }
+
+        .player-side { flex: 3; }
+        .video-js { width: 100% !important; aspect-ratio: 16 / 9; }
+
+        .playlist-side {
+            flex: 1;
+            width: 250px;
+            height: 450px;
+            overflow-y: auto !important;
+            border-left: 1px solid #333;
+            background: #1a1a1a;
+        }
+
+        /* সুন্দর স্ক্রলবার */
+        .playlist-side::-webkit-scrollbar { width: 6px; }
+        .playlist-side::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 3px; }
+
+        .vjs-playlist .vjs-playlist-item { border-bottom: 1px solid #333 !important; }
+        .vjs-playlist .vjs-selected { background: rgba(0, 113, 227, 0.3) !important; }
+
+        @media (max-width: 768px) {
+            .main-wrapper { flex-direction: column; }
+            .playlist-side { height: 250px; width: 100%; border-left: none; }
+        }
+    </style>
+</head>
+<body>
+
 <div class="container">
-
-    <div class="player-container">
-        <video id="video" class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay data-setup='{"fluid": true}'></video>
-        <div class="vjs-playlist vjs-playlist-horizontal"></div>
+    <div class="app-header">Xtreme'x TV</div>
+    
+    <div class="main-wrapper">
+        <div class="player-side">
+            <video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay muted playsinline preload="auto"></video>
+            <div id="channel-name-display">Loading Channel...</div>
+        </div>
+        <div class="playlist-side">
+            <div id="vjs-playlist"></div>
+        </div>
     </div>
-
 </div>
 
-<script src="js/app.js"></script>
-<!--
-<script src="js/main.js"></script>
--->
-<script src="js/apps.html"></script>
-<div>
-<center>
-</center>
-</div>
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/videojs-playlist@5.1.0/dist/videojs-playlist.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/videojs-playlist-ui@4.0.0/dist/videojs-playlist-ui.min.js"></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const player = videojs('video-player', { fluid: true, autoplay: true, muted: true });
+        const nameDisplay = document.getElementById('channel-name-display');
+
+        const channels = [
+            { name: 'LIVE SPORTS', sources: [{ src: 'http://10.253.253.244:8088/101/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
+            { name: 'T-SPORTS', sources: [{ src: 'http://10.253.253.244:8088/102/video.m3u8?token=jFxqNJYCS6lG30', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
+            { name: 'Fox Sports', sources: [{ src: 'https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports1080p.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
+            { name: 'Channel 2', sources: [{ src: 'https://s2.bufaloweb.com/bufalo9/tracks-v4a1/mono.ts.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
+            { name: 'Local Stream', sources: [{ src: 'http://172.16.200.211/stream/hls/ch01.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
+            { name: 'Colors HD', sources: [{ src: 'https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' },
+            { name: 'Somoy TV', sources: [{ src: 'https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8', type: 'application/x-mpegURL' }], poster: 'img/logo.png' }
+        ];
+
+        player.playlist(channels);
+        player.playlistUi({ el: document.getElementById('vjs-playlist') });
+
+        // চ্যানেল নাম আপডেট
+        player.on('playlistitem', () => {
+            const currentItem = player.playlist.currentItem();
+            nameDisplay.innerText = channels[currentItem].name;
+        });
+
+        // বাফারিং অটো-নেক্সট (১০ সেকেন্ড)
+        let bufferTimeout;
+        player.on('waiting', () => {
+            bufferTimeout = setTimeout(() => player.playlist.next(), 10000);
+        });
+        player.on('playing', () => clearTimeout(bufferTimeout));
+        player.on('error', () => player.playlist.next());
+
+        // প্রথম ক্লিকেই আনমিউট
+        document.body.addEventListener('click', () => {
+            if(player.muted()) player.muted(false);
+        }, { once: true });
+    });
+</script>
 </body>
-
-
-
 </html>

@@ -14,7 +14,7 @@
         
         body { 
             font-family: 'Segoe UI', sans-serif; 
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/img2.jpg') no-repeat center center fixed; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/img2.jpg') no-repeat center center fixed; 
             background-size: cover; 
             color: #fff; 
             height: 100vh; 
@@ -23,15 +23,33 @@
             overflow: hidden; 
         }
 
-        .app-header { padding: 15px; text-align: center; background: rgba(0,0,0,0.8); border-bottom: 3px solid var(--gold); font-size: 1.5rem; font-weight: bold; color: var(--gold); text-transform: uppercase; }
+        .app-header { padding: 15px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.8); border-bottom: 3px solid var(--gold); }
+        .header-title { font-size: 1.5rem; font-weight: bold; color: var(--gold); text-transform: uppercase; }
+        .date-time { font-size: 0.9rem; color: #fff; text-align: right; }
+
+        /* Scrolling Notice Section */
+        .marquee-container { background: var(--gold); color: #000; padding: 8px 0; overflow: hidden; white-space: nowrap; font-weight: bold; }
+        .marquee-container marquee { font-size: 1rem; }
+
         .main-wrapper { display: flex; flex: 1; overflow: hidden; }
-        .player-side { flex: 3; display: flex; flex-direction: column; background: rgba(0,0,0,0.5); }
+        .player-side { flex: 3; display: flex; flex-direction: column; background: rgba(0,0,0,0.3); }
         .video-js { width: 100% !important; flex: 1; }
-        #channel-name-display { padding: 12px; background: rgba(0,0,0,0.9); color: var(--gold); text-align: center; font-weight: bold; border-top: 1px solid var(--gold); }
         
-        .playlist-side { flex: 1; width: 350px; overflow-y: auto; background: rgba(10, 31, 17, 0.9); padding: 10px; }
+        #channel-info-bar { 
+            padding: 12px; background: rgba(0,0,0,0.9); color: var(--gold); 
+            text-align: center; font-weight: bold; border-top: 1px solid var(--gold); 
+        }
+        
+        .playlist-side { flex: 1; width: 350px; overflow-y: auto; background: rgba(0,0,0,0.4); padding: 10px; }
+        
         .vjs-playlist .vjs-playlist-item-list { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .vjs-playlist .vjs-playlist-item { background: rgba(255,255,255,0.1); border: 1px solid var(--gold) !important; border-radius: 8px !important; display: flex; flex-direction: column; align-items: center; padding: 8px !important; }
+        .vjs-playlist .vjs-playlist-item { 
+            background: rgba(0,0,0,0.6) !important; 
+            border: 1px solid var(--gold) !important; 
+            border-radius: 8px !important; 
+            display: flex; flex-direction: column; align-items: center; padding: 8px !important; 
+        }
+        
         .vjs-playlist-thumbnail { width: 50px !important; height: 50px !important; margin-bottom: 5px; }
         
         @media (max-width: 768px) { .main-wrapper { flex-direction: column; } .playlist-side { width: 100%; height: 35vh; } }
@@ -39,12 +57,24 @@
 </head>
 <body>
 
-    <div class="app-header">XTREME'X TV - FIFA FINAL</div>
+    <div class="app-header">
+        <div class="header-title">XTREME'X TV - FIFA FINAL</div>
+        <div class="date-time" id="date-time"></div>
+    </div>
+
+    <!-- Scrolling Notice -->
+    <div class="marquee-container">
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            সতর্কবার্তা: সার্ভারে অতিরিক্ত লোড থাকার কারণে খেলা দেখতে কিছুটা বাফার হতে পারে। যদি কোনো চ্যানেল বাফার করে, তবে অনুগ্রহ করে অন্য চ্যানেলগুলো ট্রাই করুন। আমাদের সাথে থাকার জন্য ধন্যবাদ!
+        </marquee>
+    </div>
     
     <div class="main-wrapper">
         <div class="player-side">
             <video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay muted playsinline preload="auto"></video>
-            <div id="channel-name-display">SELECT CHANNEL</div>
+            <div id="channel-info-bar">
+                <span id="channel-name-display">SELECT CHANNEL</span>
+            </div>
         </div>
         <div class="playlist-side">
             <div id="vjs-playlist"></div>
@@ -56,6 +86,14 @@
 <script src="https://cdn.jsdelivr.net/npm/videojs-playlist-ui@4.0.0/dist/videojs-playlist-ui.min.js"></script>
 
 <script>
+    // Date and Time
+    function updateDateTime() {
+        const now = new Date();
+        document.getElementById('date-time').innerText = now.toLocaleString('en-GB', { hour12: true });
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
     document.addEventListener('DOMContentLoaded', () => {
         const player = videojs('video-player', { fluid: false, autoplay: true, muted: true });
         const nameDisplay = document.getElementById('channel-name-display');
